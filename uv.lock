@@ -1,0 +1,44 @@
+version = 1
+revision = 1
+requires-python = ">=3.13"
+
+[manifest]
+members = [
+    "kubeflow-sdk",
+    "trainer",
+]
+
+[[package]]
+name = "kubeflow-sdk"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "trainer" },
+    { name = "workspace" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "trainer", virtual = "sdk/trainer" },
+    { name = "workspace", specifier = ">=0.3.1" },
+]
+
+[[package]]
+name = "sprinkles"
+version = "0.4.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/06/db/d8480a6438037f70f598199102801e9ac0b5b9a1c4ef7587a9dd2de4a384/sprinkles-0.4.6.tar.gz", hash = "sha256:2c3f46593eb0ed43d1b55ecb154100141eec7e81a85c9f7e93f84382ea72df47", size = 7043 }
+
+[[package]]
+name = "trainer"
+version = "0.1.0"
+source = { virtual = "sdk/trainer" }
+
+[[package]]
+name = "workspace"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "sprinkles" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/12/e7/630da05ab53c1165ef68ae77f3e8332cd48107bdc7869222da3b2c240cb0/workspace-0.3.1.tar.gz", hash = "sha256:f3cb31daf7b347ff1789aef19100e84ea52e4b7a873e7b91730f852e7b19aa65", size = 4437 }
